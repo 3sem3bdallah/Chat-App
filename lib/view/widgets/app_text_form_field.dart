@@ -55,18 +55,34 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       child: TextField(
         obscureText: _obscureText,
         decoration: InputDecoration(
+          fillColor: Colors.grey[100],
+          filled: true,
           suffixIcon: suffix,
           hintText: widget.hintText,
-          hintStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
+          hintStyle: TextStyle(fontSize: 14.sp, color: Colors.black54),
           helperText: widget.helpText,
-          helperStyle: TextStyle(
-            fontSize: 12.sp,
-            color: Colors.blueGrey,
-          ),
+          helperStyle: TextStyle(fontSize: 12.sp, color: Colors.blueGrey),
+
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(color: Colors.black, width: 1.0),
           ),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(color: Colors.black, width: 2.0),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(color: Colors.red),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(color: Colors.red, width: 2.0),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(color: Colors.black),
+          ),
         ),
       ),
     );
