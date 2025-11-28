@@ -1,13 +1,30 @@
-import 'package:chat_app/view/screens/regester/widgets/have_account_text.dart';
-import 'package:chat_app/view/widgets/app_text_button.dart';
-import 'package:chat_app/view/widgets/app_text_form_field.dart';
-import 'package:chat_app/view/widgets/auth_header.dart';
-import 'package:chat_app/view/widgets/spacing.dart';
+import 'widgets/auth_register_button.dart';
+import 'widgets/have_account_text.dart';
+import '../../widgets/app_text_form_field.dart';
+import '../../widgets/auth_header.dart';
+import '../../widgets/spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegesterScreen extends StatelessWidget {
-  const RegesterScreen({super.key});
+class RegesterScreen extends StatefulWidget {
+  const RegesterScreen({super.key, this.email, this.pass});
+
+  final String? email;
+  final String? pass;
+
+  @override
+  State<RegesterScreen> createState() => _RegesterScreenState();
+}
+
+class _RegesterScreenState extends State<RegesterScreen> {
+  String? email;
+  String? pass;
+
+  @override
+  void initState() {
+    super.initState();
+    email = widget.email;
+    pass = widget.pass;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +35,24 @@ class RegesterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             AuthHeader(title: 'Regester'),
-            AppTextFormField(hintText: "Email"),
+            AppTextFormField(
+              hintText: "Email",
+              onchange: (data) {
+                setState(() {
+                  email = data;
+                });
+              },
+            ),
             verticalSpace(5),
-            AppTextFormField(hintText: "Password", obscureText: true),
+            AppTextFormField(
+              hintText: "Password",
+              obscureText: true,
+              onchange: (data) {
+                setState(() {
+                  pass = data;
+                });
+              },
+            ),
             verticalSpace(5),
             AppTextFormField(
               hintText: "Retype Password",
@@ -28,11 +60,7 @@ class RegesterScreen extends StatelessWidget {
               helpText: 'try make it not useless',
             ),
             Spacer(),
-            AppTextButton(
-              buttonText: "Create account",
-              textStyle: TextStyle(color: Colors.white, fontSize: 14.sp),
-              onPressed: () {},
-            ),
+            RegisterButton(email: email, password: pass),
             verticalSpace(15),
             HaveAccountText(),
           ],

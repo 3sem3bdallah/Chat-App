@@ -1,9 +1,9 @@
-import 'package:chat_app/view/screens/login/widgets/dont_have_account_text.dart';
-import 'package:chat_app/view/screens/login/widgets/forget_password.dart';
-import 'package:chat_app/view/widgets/app_text_button.dart';
-import 'package:chat_app/view/widgets/app_text_form_field.dart';
-import 'package:chat_app/view/widgets/auth_header.dart';
-import 'package:chat_app/view/widgets/spacing.dart';
+import 'widgets/dont_have_account_text.dart';
+import 'widgets/forget_password.dart';
+import '../../widgets/app_text_button.dart';
+import '../../widgets/app_text_form_field.dart';
+import '../../widgets/auth_header.dart';
+import '../../widgets/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

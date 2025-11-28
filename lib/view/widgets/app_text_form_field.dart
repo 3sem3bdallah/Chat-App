@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class AppTextFormField extends StatefulWidget {
-  const AppTextFormField({
+  AppTextFormField({
+    this.onchange,
     super.key,
     this.hintText,
     this.helpText,
@@ -11,6 +12,7 @@ class AppTextFormField extends StatefulWidget {
     this.obscureText = false,
   });
 
+  Function(String)? onchange;
   final String? hintText;
   final bool obscureText;
   final String? helpText;
@@ -53,6 +55,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        onChanged: widget.onchange,
         obscureText: _obscureText,
         decoration: InputDecoration(
           fillColor: Colors.grey[100],
