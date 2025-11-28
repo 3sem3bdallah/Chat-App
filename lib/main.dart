@@ -1,4 +1,5 @@
 import 'package:chat_app/features/presentation/screens/home/home_screen.dart';
+import 'package:chat_app/features/presentation/screens/splash/splash_screen.dart';
 
 import 'utils/constant/colors.dart';
 import 'features/presentation/screens/login/login_screen.dart';
@@ -33,15 +34,16 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.background,
           ),
           routes: {
-            'Login': (context) => LoginScreen(),
+            'Splash'  : (context) => SplashScreen(),
+            'Login'   : (context) => LoginScreen(),
             'Regester': (context) => RegesterScreen(),
-            'Home' : (context) => HomeScreen()
+            'Home'    : (context) => HomeScreen()
           },
           debugShowCheckedModeBanner: false,
           home: child,
         );
       },
-      child: const LoginScreen(),
+      child: const SplashScreen(),
     );
   }
 }
