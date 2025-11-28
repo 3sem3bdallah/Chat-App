@@ -1,8 +1,8 @@
-import 'package:chat_app/features/presentation/screens/regester/widgets/auth_register_button.dart';
-import 'package:chat_app/features/presentation/screens/regester/widgets/have_account_text.dart';
-import 'package:chat_app/features/presentation/widgets/app_text_form_field.dart';
-import 'package:chat_app/features/presentation/widgets/auth_header.dart';
-import 'package:chat_app/utils/extinsion/spacing.dart';
+import 'widgets/auth_register_button.dart';
+import 'widgets/have_account_text.dart';
+import '../../widgets/app_text_form_field.dart';
+import '../../widgets/auth_header.dart';
+import '../../../../utils/extinsion/spacing.dart';
 import 'package:flutter/material.dart';
 
 class RegesterScreen extends StatefulWidget {

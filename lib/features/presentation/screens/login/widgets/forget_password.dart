@@ -12,6 +12,7 @@ class ForgetPassword extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 12.w, top: 12.h),
           child: InkWell(
+            // TODO: do a forget pass logic & Screen
             child: Text(
               "Forget Password",
               style: TextStyle(color: Colors.blueAccent, fontSize: 14.sp),

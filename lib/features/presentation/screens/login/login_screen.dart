@@ -1,21 +1,24 @@
-import 'package:chat_app/features/presentation/screens/regester/widgets/auth_register_button.dart';
-import 'package:chat_app/features/presentation/screens/regester/widgets/have_account_text.dart';
-import 'package:chat_app/features/presentation/widgets/app_text_form_field.dart';
-import 'package:chat_app/features/presentation/widgets/auth_header.dart';
-import 'package:chat_app/utils/extinsion/spacing.dart';
+import 'package:chat_app/features/presentation/screens/login/widgets/auth_login_button.dart';
+import 'package:chat_app/features/presentation/screens/login/widgets/providers_sign_in.dart';
+
+import 'widgets/dont_have_account_text.dart';
+import 'widgets/forget_password.dart';
+import '../../widgets/app_text_form_field.dart';
+import '../../widgets/auth_header.dart';
+import '../../../../utils/extinsion/spacing.dart';
 import 'package:flutter/material.dart';
 
-class RegesterScreen extends StatefulWidget {
-  const RegesterScreen({super.key, this.email, this.pass});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key, this.email, this.pass});
 
   final String? email;
   final String? pass;
 
   @override
-  State<RegesterScreen> createState() => _RegesterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegesterScreenState extends State<RegesterScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   String? email;
   String? pass;
 
@@ -34,7 +37,7 @@ class _RegesterScreenState extends State<RegesterScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            AuthHeader(title: 'Register'),
+            AuthHeader(title: 'Login'),
             AppTextFormField(
               hintText: "Email",
               onchange: (data) {
@@ -53,16 +56,15 @@ class _RegesterScreenState extends State<RegesterScreen> {
                 });
               },
             ),
-            verticalSpace(5),
-            AppTextFormField(
-              hintText: "Retype Password",
-              obscureText: true,
-              helpText: 'try make it not useless',
+            ForgetPassword(),
+            verticalSpace(35),
+            ProvidersSinIn(
+              // TODO: integrate with google/ apple
             ),
             Spacer(),
-            RegisterButton(email: email, password: pass),
+            AuthLoginButton(email: email, password: pass),
             verticalSpace(15),
-            HaveAccountText(),
+            DontHaveAccountText(),
           ],
         ),
       ),
