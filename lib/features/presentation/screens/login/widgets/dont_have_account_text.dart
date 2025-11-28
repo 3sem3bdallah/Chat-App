@@ -16,7 +16,7 @@ class DontHaveAccountText extends StatelessWidget {
             style: TextStyle(fontSize: 14.sp, color: Colors.black),
           ),
           TextSpan(
-            text: ' Regester',
+            text: ' Register',
             style: TextStyle(fontSize: 14.sp, color: Colors.blueAccent),
             recognizer: TapGestureRecognizer()
               ..onTap = () {

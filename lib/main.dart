@@ -1,6 +1,8 @@
+import 'package:chat_app/features/presentation/screens/home/home_screen.dart';
+
 import 'utils/constant/colors.dart';
-import 'view/screens/login/login_screen.dart';
-import 'view/screens/regester/regester_screen.dart';
+import 'features/presentation/screens/login/login_screen.dart';
+import 'features/presentation/screens/regester/regester_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           routes: {
             'Login': (context) => LoginScreen(),
             'Regester': (context) => RegesterScreen(),
-            // 'Home' : => HomeScreen()
+            'Home' : (context) => HomeScreen()
           },
           debugShowCheckedModeBanner: false,
           home: child,

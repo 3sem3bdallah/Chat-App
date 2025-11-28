@@ -1,7 +1,8 @@
 import 'dart:developer';
-import 'package:chat_app/view/widgets/app_text_button.dart';
+import 'package:chat_app/features/presentation/widgets/app_text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterButton extends StatefulWidget {
   final String? email;
@@ -18,6 +19,40 @@ class RegisterButton extends StatefulWidget {
 }
 
 class _RegisterButtonState extends State<RegisterButton> {
+  @override
+  Widget build(BuildContext context) {
+    return AppTextButton(
+      buttonText: "Register",
+      textStyle: TextStyle(color: Colors.white, fontSize: 14.sp),
+      onPressed: () async {
+        if (widget.email == null || widget.password == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Please Write Email and Password")),
+          );
+          return;
+        }
+
+        final errorMessage = await _registerUser();
+
+        if (!context.mounted) return;
+
+        if (errorMessage == null) {
+          // success
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Account created successfully")),
+          );
+
+          Navigator.pushReplacementNamed(context, 'Login');
+        } else {
+          // show exact Firebase error
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(errorMessage)));
+        }
+      },
+    );
+  }
+
   Future<String?> _registerUser() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -48,39 +83,5 @@ class _RegisterButtonState extends State<RegisterButton> {
       log(error.toString());
       return "Unexpected error: ${error.toString()}";
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AppTextButton(
-      buttonText: "Create account",
-      textStyle: const TextStyle(color: Colors.white),
-      onPressed: () async {
-        if (widget.email == null || widget.password == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Please Write Email and Password")),
-          );
-          return;
-        }
-
-        final errorMessage = await _registerUser();
-
-        if (!context.mounted) return;
-
-        if (errorMessage == null) {
-          // success
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Account created successfully")),
-          );
-
-          Navigator.pushReplacementNamed(context, 'Login');
-        } else {
-          // show exact Firebase error
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(errorMessage)));
-        }
-      },
-    );
   }
 }
