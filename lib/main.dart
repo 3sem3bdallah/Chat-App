@@ -1,13 +1,13 @@
-import 'package:chat_app/features/presentation/screens/home/home_screen.dart';
-import 'package:chat_app/features/presentation/screens/splash/splash_screen.dart';
-
-import 'utils/constant/colors.dart';
-import 'features/presentation/screens/login/login_screen.dart';
-import 'features/presentation/screens/regester/regester_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:firebase_core/firebase_core.dart';
+
+import 'features/presentation/screens/home/home_screen.dart';
+import 'features/presentation/screens/login/login_screen.dart';
+import 'features/presentation/screens/regester/regester_screen.dart';
+import 'features/presentation/screens/splash/splash_screen.dart';
 import 'firebase_options.dart';
+import 'utils/constant/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,9 +1,10 @@
-import 'widgets/auth_register_button.dart';
-import 'widgets/have_account_text.dart';
+import 'package:flutter/material.dart';
+
+import '../../../../utils/extinsion/spacing.dart';
 import '../../widgets/app_text_form_field.dart';
 import '../../widgets/auth_header.dart';
-import '../../../../utils/extinsion/spacing.dart';
-import 'package:flutter/material.dart';
+import 'widgets/auth_register_button.dart';
+import 'widgets/have_account_text.dart';
 
 class RegesterScreen extends StatefulWidget {
   const RegesterScreen({super.key, this.email, this.pass});

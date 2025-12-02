@@ -1,8 +1,8 @@
-import 'package:chat_app/features/presentation/screens/regester/widgets/auth_register_button.dart';
-import 'package:chat_app/features/presentation/screens/regester/widgets/have_account_text.dart';
-import 'package:chat_app/features/presentation/widgets/app_text_form_field.dart';
-import 'package:chat_app/features/presentation/widgets/auth_header.dart';
-import 'package:chat_app/utils/extinsion/spacing.dart';
+import '../../../features/presentation/screens/regester/widgets/auth_register_button.dart';
+import '../../../features/presentation/screens/regester/widgets/have_account_text.dart';
+import '../../../features/presentation/widgets/app_text_form_field.dart';
+import '../../../features/presentation/widgets/auth_header.dart';
+import '../../../utils/extinsion/spacing.dart';
 import 'package:flutter/material.dart';
 
 class RegesterScreen extends StatefulWidget {
@@ -59,7 +59,7 @@ class _RegesterScreenState extends State<RegesterScreen> {
               obscureText: true,
               helpText: 'try make it not useless',
             ),
-            Spacer(),
+            verticalSpace(35),
             RegisterButton(email: email, password: pass),
             verticalSpace(15),
             HaveAccountText(),
