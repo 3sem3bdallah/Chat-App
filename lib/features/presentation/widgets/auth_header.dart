@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:chat_app/view/widgets/spacing.dart';
+
+import '../../../utils/extinsion/spacing.dart';
 
 class AuthHeader extends StatelessWidget {
   final String title;

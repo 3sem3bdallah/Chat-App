@@ -1,11 +1,18 @@
-import 'package:chat_app/utils/constant/colors.dart';
-import 'package:chat_app/view/screens/login/login_screen.dart';
-import 'package:chat_app/view/screens/regester/regester_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'features/presentation/screens/home/home_screen.dart';
+import 'features/presentation/screens/login/login_screen.dart';
+import 'features/presentation/screens/regester/regester_screen.dart';
+import 'features/presentation/screens/splash/splash_screen.dart';
+import 'firebase_options.dart';
+import 'utils/constant/colors.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,15 +34,16 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.background,
           ),
           routes: {
-            'Login': (context) => LoginScreen(),
+            'Splash'  : (context) => SplashScreen(),
+            'Login'   : (context) => LoginScreen(),
             'Regester': (context) => RegesterScreen(),
-            // 'Home' : => HomeScreen()
+            'Home'    : (context) => HomeScreen()
           },
           debugShowCheckedModeBanner: false,
           home: child,
         );
       },
-      child: const LoginScreen(),
+      child: const SplashScreen(),
     );
   }
 }
