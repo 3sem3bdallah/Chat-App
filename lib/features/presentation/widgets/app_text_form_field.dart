@@ -10,6 +10,7 @@ class AppTextFormField extends StatefulWidget {
     this.helpText,
     this.suffixIcon,
     this.obscureText = false,
+    this.controller,
   });
 
   Function(String)? onchange;
@@ -17,6 +18,7 @@ class AppTextFormField extends StatefulWidget {
   final bool obscureText;
   final String? helpText;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();
@@ -55,6 +57,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        controller: widget.controller,
         onChanged: widget.onchange,
         obscureText: _obscureText,
         decoration: InputDecoration(

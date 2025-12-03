@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({super.key});
+ const ChatBubble({super.key, required this.message});
 
+  final String message;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -20,7 +21,7 @@ class ChatBubble extends StatelessWidget {
           ),
         ),
         child: Text(
-          'test mssg',
+          message,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.sp,
