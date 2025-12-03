@@ -1,5 +1,5 @@
-import 'package:chat_app/features/presentation/screens/login/widgets/auth_login_button.dart';
-import 'package:chat_app/features/presentation/screens/login/widgets/providers_sign_in.dart';
+import 'widgets/auth_login_button.dart';
+import 'widgets/providers_sign_in.dart';
 
 import 'widgets/dont_have_account_text.dart';
 import 'widgets/forget_password.dart';
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ProvidersSinIn(
               // TODO: integrate with google/ apple
             ),
-            Spacer(),
+            verticalSpace(55),
             AuthLoginButton(email: email, password: pass),
             verticalSpace(15),
             DontHaveAccountText(),

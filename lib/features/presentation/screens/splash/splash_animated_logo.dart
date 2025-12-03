@@ -20,7 +20,7 @@ class SplashAnimatedLogo extends StatelessWidget {
         height: 200.h,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.grey.shade300,
+          color: Colors.grey.shade100,
         ),
         child: Opacity(
           opacity: opacity.value,

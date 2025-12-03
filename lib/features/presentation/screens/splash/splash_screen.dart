@@ -1,4 +1,4 @@
-import 'package:chat_app/features/presentation/screens/splash/splash_animated_logo.dart';
+import 'splash_animated_logo.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
